@@ -15,13 +15,13 @@ function validate(event) {
         fail = "Вы ввели неверное значение в поле цена!";
     else if (year == "" || year == " " || year.match(yearcheck) == null || year.length>4)
         fail = "Вы ввели неверное значение в поле год издания!";
-    else if (!fail) fail=check(bookname,namecheck,"название книги!");
-    else if (!fail) fail=check(price,numcheck,"цена!");
-    else if (!fail) fail=check(year,numcheck,"год издания!");
+    if (!fail) fail=check(bookname,namecheck,"название книги!");
+    if (!fail) fail=check(price,numcheck,"цена!");
+    if (!fail) fail=check(year,numcheck,"год издания!");
     if(!fail){var u = Number.parseInt(year); if (u<1901 || u>2155) fail = "Неверно введена дата издания!";}
     if(description =="" || description == " " || description.match(namecheck) == null || description.length >500)
         fail = "Вы ввели неверное значение в поле описание книги!";
-    else if (!fail) fail=check(description,namecheck,"описание книги!");
+    if (!fail) fail=check(description,namecheck,"описание книги!");
     if (fail) {
         alert(fail);
         event.preventDefault();

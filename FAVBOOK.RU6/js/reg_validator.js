@@ -48,10 +48,10 @@ function validate(event) {
         fail = "Адрес должен быть заполнен и не длиннее 200 символов и не содержать специсимволов";
 
     if (!fail) fail=check(login,login_and_password,"логин!");
-    else if (!fail) fail=check(password,login_and_password,"пароль!");
-    else if (!fail) fail=check(name,namecheck,"имя!");
-    else if (!fail) fail=check(phone,phonecheck,"телефон!");
-    else if (!fail) fail=check(address,addresscheck,"адрес!");
+    if (!fail) fail=check(password,login_and_password,"пароль!");
+    if (!fail) fail=check(name,namecheck,"имя!");
+    if (!fail) fail=check(phone,phonecheck,"телефон!");
+    if (!fail) fail=check(address,addresscheck,"адрес!");
     if (fail) {
         document.getElementById("alert").innerHTML = fail;
         event.preventDefault();
