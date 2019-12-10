@@ -12,11 +12,10 @@ function GetIP() {
 function detect_by_ip($ip)
 {
     $result = false;
-    if ($ch = curl_init("http://suggestions.dadata.ru/suggestions/api/4_1/rs/detectAddressByIp?ip=".$ip))
+    if ($ch = curl_init("http://suggestions.dadata.ru/suggestions/api/4_1/rs/iplocate/address?ip=".$ip))
     {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
             'Accept: application/json',
             'Authorization: Token 645608a938df4baaa8f1297c35b2326fcd778218'
         ));
